@@ -1,5 +1,5 @@
 /**
- * Write a description of class Asset here.
+ * Holds all of the information of the stocks and has methods to buy and sell them
  *
  * @author Jon LeFrois
  * @version 2/23/2023
