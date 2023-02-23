@@ -31,10 +31,13 @@ public class PortfolioReport
             String[] data = line.split(",");
             if(data[0].equals("B")){
                 //Buy the stock for the portfolio.
-                p.buyStock(data[1], data[2], Integer.valueOf(data[3]), Double.valueOf(data[4]));
+                int i = Integer.parseInt(data[3].substring(1));
+                double d = Double.valueOf(data[4].substring(1));
+                p.buyStock(data[1], data[2], i, d);
             } else {
                 //Sell the stock from the portfolio.
-                p.sellStock(data[1], Integer.valueOf(data[2]));
+                int i = Integer.parseInt(data[2].substring(1));
+                p.sellStock(data[1], i);
             }
         }
 

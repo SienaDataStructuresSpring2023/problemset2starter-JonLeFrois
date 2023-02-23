@@ -50,12 +50,12 @@ public class Portfolio
         int index = getIndex(symbol);
         if(index >= 0){
             stocks.get(index).buyShares(numToBuy, price);
-            lifetimeInvestment = lifetimeInvestment + (numToBuy * price);
         }
         else{
             StockHolding newStock = new StockHolding(name, price, numToBuy, symbol);
             stocks.add(newStock);
         }
+        lifetimeInvestment = lifetimeInvestment + (numToBuy * price);
         return numToBuy * price;
     }
     
