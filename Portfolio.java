@@ -47,14 +47,15 @@ public class Portfolio
      * @return  the cost of buying the stock
      */
     public double buyStock(String symbol, String name, int numToBuy, double price){
-        for(int i = 0; i < stocks.size(); i++){
-            if(stocks.get(i).getSymbol().equals(symbol)){
-                stocks.get(i).buyShares(numToBuy, price);
-                lifetimeInvestment = lifetimeInvestment + (numToBuy * price);
-            }
+        int index = getIndex(symbol);
+        if(index >= 0){
+            stocks.get(index).buyShares(numToBuy, price);
+            lifetimeInvestment = lifetimeInvestment + (numToBuy * price);
         }
-        StockHolding newStock = new StockHolding(name, price, numToBuy, symbol);
-        stocks.add(newStock);
+        else{
+            StockHolding newStock = new StockHolding(name, price, numToBuy, symbol);
+            stocks.add(newStock);
+        }
         return numToBuy * price;
     }
     
@@ -80,16 +81,15 @@ public class Portfolio
      * @return  the payout from selling the stock, or 0 if not sold
      */
     public double sellStock(String symbol, int numToSell){
-        for(int i = 0; i < stocks.size(); i++){
-            if(stocks.get(i).getSymbol().equals(symbol)){
-                stocks.get(i).sellShares(numToSell);
-                double price = stocks.get(1).getPrice();
-                if(stocks.get(i).getNumShares() == 0){
-                    stocks.remove(i);
-                }
-                lifetimePayout = lifetimePayout + (numToSell * price);
-                return numToSell * price;
+        int index = getIndex(symbol);
+        if(index >= 0){
+            stocks.get(index).sellShares(numToSell);
+            double price = stocks.get(index).getPrice();
+            if(stocks.get(index).getNumShares() == 0){
+                stocks.remove(index);
             }
+            lifetimePayout = lifetimePayout + (numToSell * price);
+            return numToSell * price;
         }
         return 0;
     }
