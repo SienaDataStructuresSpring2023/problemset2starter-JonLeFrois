@@ -61,6 +61,14 @@ public class Portfolio
         return 0;
     }
     
+    public double getCurrentValue(){
+        double value = 0;
+        for(int i = 0; i < stocks.size(); i++){
+            value = value + (stocks.get(i).getNumShares() * stocks.get(i).getPrice());
+        }
+        return value;
+    }
+    
     @Override
     public String toString()
     {
