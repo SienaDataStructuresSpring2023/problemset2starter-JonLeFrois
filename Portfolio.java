@@ -46,6 +46,21 @@ public class Portfolio
         return -1;
     }
     
+    public double sellStock(String symbol, int numToSell){
+        for(int i = 0; i < stocks.size(); i++){
+            if(stocks.get(i).getSymbol().equals(symbol)){
+                stocks.get(i).sellShares(numToSell);
+                double price = stocks.get(1).getPrice();
+                if(stocks.get(i).getNumShares() == 0){
+                    stocks.remove(i);
+                }
+                lifetimePayout = lifetimePayout + (numToSell * price);
+                return numToSell * price;
+            }
+        }
+        return 0;
+    }
+    
     @Override
     public String toString()
     {
