@@ -34,6 +34,11 @@ public class StockHolding
         return symbol;
     }
     
+    public void buyShares(int newShares, double price){
+        numShares = numShares + newShares;
+        this.price = price;
+    }
+    
     @Override
     public String toString()
     {
