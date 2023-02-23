@@ -25,6 +25,18 @@ public class Portfolio
         return lifetimePayout;
     }
     
+    public double buyStock(String symbol, String name, int numToBuy, double price){
+        for(int i = 0; i < stocks.size(); i++){
+            if(stocks.get(i).getSymbol().equals(symbol)){
+                stocks.get(i).buyShares(numToBuy, price);
+                lifetimeInvestment = lifetimeInvestment + (numToBuy * price);
+            }
+        }
+        StockHolding newStock = new StockHolding(name, price, numToBuy, symbol);
+        stocks.add(newStock);
+        return numToBuy * price;
+    }
+    
     private int getIndex(String symbol){
         for(int i = 0; i < stocks.size(); i++){
             if(stocks.get(i).getSymbol().equals(symbol)){
