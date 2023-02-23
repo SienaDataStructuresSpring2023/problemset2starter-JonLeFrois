@@ -17,6 +17,14 @@ public class Portfolio
         lifetimePayout = 0;
     }
     
+    public double getLifetimeInvestment(){
+        return lifetimeInvestment;
+    }
+    
+    public double getLifetimePayout(){
+        return lifetimePayout;
+    }
+    
     @Override
     public String toString()
     {
