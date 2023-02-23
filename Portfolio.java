@@ -25,6 +25,15 @@ public class Portfolio
         return lifetimePayout;
     }
     
+    private int getIndex(String symbol){
+        for(int i = 0; i < stocks.size(); i++){
+            if(stocks.get(i).getSymbol().equals(symbol)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     @Override
     public String toString()
     {
