@@ -6,6 +6,11 @@
  */
 public class StockHolding
 {
+    private String name;
+    private double price;
+    private int numShares;
+    private String symbol;
+    
     // @Override
     // public String toString()
     // {
