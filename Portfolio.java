@@ -7,22 +7,28 @@ import java.util.ArrayList;
  */
 public class Portfolio
 {
-    private ArrayList<StockHolding> stocksHeld = new ArrayList<StockHolding>();
+    private ArrayList<StockHolding> stocks;
     private double lifetimeInvestment;
     private double lifetimePayout;
     
-    // @Override
-    // public String toString()
-    // {
-        // //DO NOT EDIT THIS METHOD.
-        // StringBuffer sb = new StringBuffer();
-        // sb.append(String.format("%6s%25s%10s%15s%15s%n", 
-                // "Symbol", "Name", "Shares", "@Price", "Total"));
-        // sb.append("-----------------------------------------------------------------------\n");
+    public Portfolio(){
+        stocks = new ArrayList<StockHolding>();
+        lifetimeInvestment = 0;
+        lifetimePayout = 0;
+    }
+    
+    @Override
+    public String toString()
+    {
+        //DO NOT EDIT THIS METHOD.
+        StringBuffer sb = new StringBuffer();
+        sb.append(String.format("%6s%25s%10s%15s%15s%n", 
+                "Symbol", "Name", "Shares", "@Price", "Total"));
+        sb.append("-----------------------------------------------------------------------\n");
 
-        // for(StockHolding s : stocks){
-            // sb.append(s.toString());
-        // }
-        // return sb.toString();
-    // }
+        for(StockHolding s : stocks){
+            sb.append(s.toString());
+        }
+        return sb.toString();
+    }
 }
