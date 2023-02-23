@@ -42,8 +42,8 @@ public class PortfolioReport
         System.out.println();
         
         // Uncomment the lines of code below and complete the print statements to work as intended.
-        // System.out.println(String.format("      Current Value:  $%,15.2f", //YOUR CODE HERE.));
-        // System.out.println(String.format("Lifetime Investment:  $%,15.2f", //YOUR CODE HERE.));
-        // System.out.println(String.format("    Lifetime Payout:  $%,15.2f", //YOUR CODE HERE.));
+        System.out.println(String.format("      Current Value:  $%,15.2f", p.getCurrentValue()));
+        System.out.println(String.format("Lifetime Investment:  $%,15.2f", p.getLifetimeInvestment()));
+        System.out.println(String.format("    Lifetime Payout:  $%,15.2f", p.getLifetimePayout()));
     }
 }
